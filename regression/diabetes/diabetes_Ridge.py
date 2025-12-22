@@ -24,7 +24,7 @@ print(df.head())
 
 # como los datos ya estan normalizados, pasamos directamente a la
 # separacion en datos de entramiento y prueba
-X = df.drop(['target'], axis=1)
+X = df.drop(['target', 'age', 'sex', 'bmi', 'bp'], axis=1)
 y = df["target"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 

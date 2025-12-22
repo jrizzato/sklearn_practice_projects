@@ -1,3 +1,5 @@
+# Goal: Use Logistic Regresion to clasify a specific type of iris flowr according to certain numeric parameters
+
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split

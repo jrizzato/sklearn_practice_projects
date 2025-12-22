@@ -86,4 +86,3 @@ for idx, ax in enumerate(axes):
     ax.set_title(f'Árbol {idx + 1}')
 plt.tight_layout()
 plt.show()
-
