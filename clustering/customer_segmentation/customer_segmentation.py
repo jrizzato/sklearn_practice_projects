@@ -23,8 +23,8 @@ df.drop("CustomerID", axis=1, inplace=True)
 print(df.head())
 
 # convertimos la caracteristica categórica Gender a numerica
-df["Genre"] = df["Genre"].map({"Male":0, "Female":1})
-print(df.info())
+# df["Genre"] = df["Genre"].map({"Male":0, "Female":1}) # aunque es irrelevante este feature
+# print(df.info())
 
 # seleccionamos la caracteristicas relevantes para segmentar
 X = df[["Annual Income (k$)", "Spending Score (1-100)"]]
