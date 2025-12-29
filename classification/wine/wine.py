@@ -8,6 +8,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
+# entrenamos, testeamos y evaluamos
+from sklearn.linear_model import LogisticRegression
+
 
 # cargamos el dataset
 data = load_wine()
@@ -45,8 +48,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 
-# entrenamos, testeamos y evaluamos
-from sklearn.linear_model import LogisticRegression
+
 
 clf = LogisticRegression(random_state=42, max_iter=1000)
 clf.fit(X_train_scaled, y_train)
