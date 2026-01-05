@@ -32,3 +32,16 @@ y_pred = knn.predict(X_test)
 print(f"Precisión del modelo con K={k}: {accuracy_score(y_test, y_pred):.2f}")
 print("\nReporte de Clasificación:\n")
 print(classification_report(y_test, y_pred, target_names=iris.target_names))
+
+# ejemplo de predicción con nuevos datos
+print("Ejemplo de predicción:")
+ejemplo = np.array([[5.1, 3.5, 1.4, 0.2]])  # características de una muestra, es decir medidas de sépalo y pétalo
+ejemplo = scaler.transform(ejemplo)
+prediccion = knn.predict(ejemplo)
+print("Prediccion:", prediccion)
+print("tipo de dato prediccion:", type(prediccion))
+probabilidades = knn.predict_proba(ejemplo)
+
+print(f"Features: {ejemplo[0]}")
+print(f"Predicción: {iris.target_names[prediccion[0]]}")
+print(f"Probabilidades: {probabilidades[0]}")

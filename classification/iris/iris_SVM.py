@@ -29,7 +29,12 @@ plt.suptitle("Iris Dataset Pairplot", y=1.02)
 plt.show()
 
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=120)
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
 
 from sklearn.svm import SVC # support vector classification
 from sklearn.model_selection import GridSearchCV
@@ -38,7 +43,7 @@ from sklearn.model_selection import GridSearchCV
 param_grid = {
     "C": [0.1, 1, 10, 100],
     "gamma": [1, 0.1, 0.01, 0.001],
-    "kernel": ["rbf"]
+    "kernel": ["rbf"] # radial basis function a.k.a gaussian kernel
 }
 
 # creamos el model svm
@@ -81,6 +86,7 @@ my_measurements = np.array([[5.1, 3.5, 1.4, 0.2]])  # Una flor
 #     [5.1, 3.5, 1.4, 0.2],
 #     [6.2, 2.9, 4.3, 1.3]
 # ])
+my_measurements = scaler.transform(my_measurements)
 
 # Hacer la predicción
 my_prediction = grid.best_estimator_.predict(my_measurements)
